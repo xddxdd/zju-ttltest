@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        <meta http-equiv=Content-Type content="text/html;charset=UTF-8"/>
+        <meta http-equiv=X-UA-Compatible content="IE=edge"/>
+        <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"/>
+        <meta name=renderer content=webkit />
+        <title>TTL Chip Tester</title>
+        <script src="res/jquery.min.js"></script>
+        <script src="res/bootstrap.min.js"></script>
+        <script src="res/script.js"></script>
+        <script src="res/script-gatedata.js"></script>
+        <script src="res/script-sopdata.js"></script>
+        <script src="res/script-chipdata.js"></script>
+        <link href="res/bootstrap.min.css" rel="stylesheet">
+        <link href="res/styles.css" rel="stylesheet">
+        <style>
+        </style>
+    </head>
+    <body onload="init()">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">TTL Chip Tester</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbar">
+                        <ul class="nav navbar-nav">
+                            <li id="menu-gate" class="active"><a href="#" onclick="switchMenu('gate')">Gate</a></li>
+                            <li id="menu-chip"><a href="#" onclick="switchMenu('chip')">Chip</a></li>
+                            <li id="menu-about"><a href="#" onclick="switchMenu('about')">About</a></li>
+                            <span id="notification"><li class="alert alert-info">Connecting to Arduino...</li></span>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <section id="section-gate" class="jumbotron">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <table class="table table-striped" id="portTable">
+                                <thead><tr><td>Port</td><td>Pin</td></tr></thead>
+                                <tbody><tr>
+                                    <td colspan="2">Loading...</td>
+                                </tr></tbody>
+                            </table>
+                        </div>
+                        <div class="col-xs-4">
+                            <table class="table table-striped" id="resultTable">
+                                <thead>
+                                    <tr>
+                                        <td>Group</td>
+                                        <td>4</td>
+                                        <td>3</td>
+                                        <td>2</td>
+                                        <td>1</td>
+                                        <td>OUT</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="6">Shows result after you run a test.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p>RAW Data: <span id="rawdata">Available after you run a test.</span></p>
+                        </div>
+                        <div class="col-xs-4 text-center">
+                            <table class="table table-striped" id="kMap">
+                                <tr>
+                                    <td colspan="2" rowspan="2">K-Map</td>
+                                    <td colspan="4">Pin 2 &amp; Pin 1</td>
+                                </tr>
+                                <tr>
+                                    <td>00</td>
+                                    <td>01</td>
+                                    <td>11</td>
+                                    <td>10</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="4">Pin 4<br>Pin 3</td>
+                                    <td>00</td>
+                                    <td colspan="4" rowspan="4">Shows result after you run a test.</td>
+                                </tr>
+                                <tr><td>01</td></tr>
+                                <tr><td>11</td></tr>
+                                <tr><td>10</td></tr>
+                            </table>
+                            <p>SOP = <span id="sop">Shows result after you run a test.</span></p>
+                            <p>Gate: <span id="gate">Shows result after you run a test.</span></p>
+                        </div>
+                        <div class="col-xs-2">
+                            <p>Test with X pins:</p>
+                            <div class="btn-group" role="group">
+                                <button class="btn btn-default" id="test1" onclick="runTest(1)">1</button>
+                                <button class="btn btn-default" id="test2" onclick="runTest(2)">2</button>
+                                <button class="btn btn-default" id="test3" onclick="runTest(3)">3</button>
+                                <button class="btn btn-default" id="test4" onclick="runTest(4)">4</button>
+                            </div>
+                            <p>Compare to known gates:</p>
+                            <div class="btn-group">
+                                <button id="gate-select" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Select <span class="caret"></span>
+                                </button>
+                                <ul id="known-gates" class="dropdown-menu">
+                                    <li><a href="#">Loading...</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="section-chip" class="jumbotron hidden">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <p>Select chip:</p>
+                            <div class="btn-group">
+                                <button id="chipselect" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Select <span class="caret"></span>
+                                </button>
+                                <ul id="known-chips" class="dropdown-menu">
+                                    <li><a href="#">Loading...</a></li>
+                                </ul>
+                            </div>
+                            <button id="chipcheck" type="button" class="btn btn-default">Check</button>
+                            <p>&nbsp;</p>
+                            <p>Please connect as marked with red font:</p>
+                            <p><img id="chipimg" src="" width="100%"/></p>
+                        </div>
+                        <div class="col-xs-8">
+                            <table id="chipresult" class="table table-striped">
+                                <tr><td>Shows result after you run a test.</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="section-about" class="jumbotron hidden">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <h2>TTL Test</h2>
+                            <p>A Project for ZJU-UIUC ECE120: <br>
+                            <a href="https://wiki.illinois.edu/wiki/display/zjuiece120/Projects#main-content" target="_blank">TTL Chip Tester</a>.</p>
+                            <p>Licensed under GPLv3.</p>
+                            <h4>This project used following open-source projects:</h4>
+                            <p><a href="https://github.com/twbs/bootstrap" target="_blank">Bootstrap</a> web design framework, licensed under MIT license.</p>
+                            <p><a href="https://github.com/jquery/jquery" target="_blank">jQuery</a> Javascript framework, licensed under custom license (js.foundation).</p>
+                            <p><a href="https://github.com/python/cpython" target="_blank">Python</a> programming language, licensed under custom license.</p>
+                        </div>
+                        <div class="col-xs-6">
+                            <table id="aboutTable" class="table table-striped">
+                                <tr><td>Leader:</td><td>Chen Ximin</td></tr>
+                                <tr><td>Hardware:</td><td>Yu Sicong<br>Li Heyuan</td></tr>
+                                <tr><td>Software:</td><td>Xu Yuhui</td></tr>
+                                <tr><td>Testing &amp; Code Review:</td><td>Chen Ximin<br>Zhu Minrui<br>Li Heyuan</td></tr>
+                            </table>
+                        </div>
+                        <div class="col-xs-3">
+                            <p>Source code can be viewed on GitHub, <br>at <a href="https://github.com/xddxdd/zju-ttltest" target="_blank">xddxdd/zju-ttltest</a>.</p>
+                            <iframe src="https://ghbtns.com/github-btn.html?user=xddxdd&repo=zju-ttltest&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe><br>
+                            <iframe src="https://ghbtns.com/github-btn.html?user=xddxdd&type=follow&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe><br>
+                            <img src="res/github-qr.png" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>

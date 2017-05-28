@@ -1,0 +1,39 @@
+body {
+    padding:10px;
+    text-align: center;
+}
+img{
+    box-shadow:0 0 5px #ccc;
+}
+.container {
+    min-width:1170px !important;
+}
+li.alert{
+    padding-top: 14px;
+    padding-bottom: 13px;
+    margin-bottom:0 !important;
+}
+#notification{
+    display:inline-block;
+}
+.jumbotron{
+    padding:20px 10px !important;
+}
+.jumbotron p{
+    font-size:14px;
+    font-weight:400;
+}
+td .btn {
+    padding:2px 8px !important;
+}
+#portTable td {
+    padding:8px 0;
+}
+#aboutTable td:first-child{
+    text-align:right;
+    width:50%
+}
+#aboutTable td:last-child{
+    text-align:left;
+    width:50%
+}
