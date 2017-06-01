@@ -103,7 +103,7 @@ function drawResultTable(data, expected, name) {
         newHtml += "<td>" + (size - i) + "</td>";
     }
     newHtml += "<td>OUT</td>";
-    if(expect != data) newHtml += "<td>EXPECT</td>";
+    if(name) newHtml += "<td>EXPECT</td>";
     $("#resultTable thead tr").html(newHtml);
     var colspan = size + 2;
     newHtml = "";
@@ -122,13 +122,13 @@ function drawResultTable(data, expected, name) {
             newHtml += "<td>" + binary[j] + "</td>";
         }
         newHtml += "<td>" + data[i] + "</td>";
-        if(expect != data) newHtml += "<td>" + expect[i] + "</td>";
+        if(name) newHtml += "<td>" + expect[i] + "</td>";
         newHtml += "</tr>";
     }
     if(flag) {
-        $("#gate").text(name + " (OK)");
+        $("#gate").html(name + " <span class='label label-success'>OK</span>");
     } else {
-        $("#gate").text(name + " (Bad)");
+        $("#gate").html(name + " <span class='label label-danger'>Bad</span>");
     }
     return newHtml;
 }
