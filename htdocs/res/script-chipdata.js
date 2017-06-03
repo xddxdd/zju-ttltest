@@ -3,6 +3,22 @@ var chip = [
         'name': 'NAND2 - SN[54/74]00 Series',
         'img': '7400.png',
         'type': 'general',
+        'pinPort': {
+            1:'2',
+            2:'3',
+            3:'4',
+            4:'5',
+            5:'6',
+            6:'7',
+            7:'/',
+            8:'8',
+            9:'9',
+            10:':',
+            11:';',
+            12:'<',
+            13:'=',
+            14:'/'
+        },
         'set': [{
             'writeTo': [1,2],
             'readFrom': 3,
@@ -25,6 +41,22 @@ var chip = [
         'name': 'NOR2 - SN[54/74]02 Series',
         'img': '7402.png',
         'type': 'general',
+        'pinPort': {
+            1:'2',
+            2:'3',
+            3:'4',
+            4:'5',
+            5:'6',
+            6:'7',
+            7:'/',
+            8:'8',
+            9:'9',
+            10:':',
+            11:';',
+            12:'<',
+            13:'=',
+            14:'/'
+        },
         'set': [{
             'writeTo': [2,3],
             'readFrom': 1,
@@ -47,6 +79,22 @@ var chip = [
         'name': 'NOT - SN[54/74]04 Series',
         'img': '7404.png',
         'type': 'general',
+        'pinPort': {
+            1:'2',
+            2:'3',
+            3:'4',
+            4:'5',
+            5:'6',
+            6:'7',
+            7:'/',
+            8:'8',
+            9:'9',
+            10:':',
+            11:';',
+            12:'<',
+            13:'=',
+            14:'/'
+        },
         'set': [{
             'writeTo': [1],
             'readFrom': 2,
@@ -77,6 +125,22 @@ var chip = [
         'name': 'NAND3 - SN[54/74]10 Series',
         'img': '7410.png',
         'type': 'general',
+        'pinPort': {
+            1:'2',
+            2:'3',
+            3:'4',
+            4:'5',
+            5:'6',
+            6:'7',
+            7:'/',
+            8:'8',
+            9:'9',
+            10:':',
+            11:';',
+            12:'<',
+            13:'=',
+            14:'/'
+        },
         'set': [{
             'writeTo': [1,2,13],
             'readFrom': 12,
@@ -95,6 +159,22 @@ var chip = [
         'name': 'NAND4 - SN[54/74]20 Series',
         'img': '7420.png',
         'type': 'general',
+        'pinPort': {
+            1:'2',
+            2:'3',
+            3:'4',
+            4:'5',
+            5:'6',
+            6:'7',
+            7:'/',
+            8:'8',
+            9:'9',
+            10:':',
+            11:';',
+            12:'<',
+            13:'=',
+            14:'/'
+        },
         'set': [{
             'writeTo': [1,2,4,5],
             'readFrom': 6,
@@ -109,6 +189,22 @@ var chip = [
         'name': 'NOR3 - SN[54/74]27 Series',
         'img': '7427.png',
         'type': 'general',
+        'pinPort': {
+            1:'2',
+            2:'3',
+            3:'4',
+            4:'5',
+            5:'6',
+            6:'7',
+            7:'/',
+            8:'8',
+            9:'9',
+            10:':',
+            11:';',
+            12:'<',
+            13:'=',
+            14:'/'
+        },
         'set': [{
             'writeTo': [1,2,13],
             'readFrom': 12,
@@ -127,6 +223,22 @@ var chip = [
         'name': 'DFF - SN[54/74]74 Series',
         'img': '7474.png',
         'type': 'direct',
+        'pinPort': {
+            1:'2',
+            2:'3',
+            3:'4',
+            4:'5',
+            5:'6',
+            6:'7',
+            7:'/',
+            8:'8',
+            9:'9',
+            10:':',
+            11:';',
+            12:'<',
+            13:'=',
+            14:'/'
+        },
         'set': [
             /* DFF left-bottom */
             { /* DFF: Preset to HIGH */
@@ -186,107 +298,125 @@ var chip = [
         'name': 'DFF - SN[54/74]175 Series',
         'img': '74175.png',
         'type': 'direct',
+        'pinPort': {
+            1:'2',
+            2:'3',
+            3:'4',
+            4:'5',
+            5:'6',
+            6:'7',
+            7:'8',
+            8:'/',
+            9:'9',
+            10:':',
+            11:';',
+            12:'<',
+            13:'=',
+            14:'>',
+            15:'?',
+            16:'/'
+        },
         'set': [
             /* Test clearing and inverted output */
             {
                 'comment': 'LEFT-BOTTOM: Clear, test Q',
-                'setHigh': [1], 'setLow': [4,5,8,11,12], 'readFrom': 2, 'result': '0'
+                'setHigh': [1], 'setLow': [4,5,9,12,13], 'readFrom': 2, 'result': '0'
             },
             {
                 'comment': 'LEFT-BOTTOM: Clear, test Q\'',
-                'setHigh': [1], 'setLow': [4,5,8,11,12], 'readFrom': 3, 'result': '1'
+                'setHigh': [1], 'setLow': [4,5,9,12,13], 'readFrom': 3, 'result': '1'
             },
             {
                 'comment': 'RIGHT-BOTTOM: Clear, test Q',
-                'setHigh': [1], 'setLow': [4,5,8,11,12], 'readFrom': 15, 'result': '0'
+                'setHigh': [1], 'setLow': [4,5,9,12,13], 'readFrom': 7, 'result': '0'
             },
             {
                 'comment': 'RIGHT-BOTTOM: Clear, test Q\'',
-                'setHigh': [1], 'setLow': [4,5,8,11,12], 'readFrom': 6, 'result': '1'
+                'setHigh': [1], 'setLow': [4,5,9,12,13], 'readFrom': 6, 'result': '1'
             },
             {
                 'comment': 'RIGHT-TOP: Clear, test Q',
-                'setHigh': [1], 'setLow': [4,5,8,11,12], 'readFrom': 9, 'result': '0'
+                'setHigh': [1], 'setLow': [4,5,9,12,13], 'readFrom': 10, 'result': '0'
             },
             {
                 'comment': 'RIGHT-TOP: Clear, test Q\'',
-                'setHigh': [1], 'setLow': [4,5,8,11,12], 'readFrom': 10, 'result': '1'
+                'setHigh': [1], 'setLow': [4,5,9,12,13], 'readFrom': 11, 'result': '1'
             },
             {
                 'comment': 'LEFT-TOP: Clear, test Q',
-                'setHigh': [1], 'setLow': [4,5,8,11,12], 'readFrom': 13, 'result': '0'
+                'setHigh': [1], 'setLow': [4,5,9,12,13], 'readFrom': 15, 'result': '0'
             },
             {
                 'comment': 'LEFT-TOP: Clear, test Q\'',
-                'setHigh': [1], 'setLow': [4,5,8,11,12], 'readFrom': 16, 'result': '1'
+                'setHigh': [1], 'setLow': [4,5,9,12,13], 'readFrom': 14, 'result': '1'
             },
             /* Test HIGH, before tick */
             {
                 'comment': 'LEFT-BOTTOM: Set to HIGH, no tick',
-                'setHigh': [4,5,11,12], 'setLow': [1,8], 'readFrom': 2, 'result': '0'
+                'setHigh': [4,5,12,13], 'setLow': [1,9], 'readFrom': 2, 'result': '0'
             },
             {
                 'comment': 'RIGHT-BOTTOM: Set to HIGH, no tick',
-                'setHigh': [4,5,11,12], 'setLow': [1,8], 'readFrom': 15, 'result': '0'
+                'setHigh': [4,5,12,13], 'setLow': [1,9], 'readFrom': 7, 'result': '0'
             },
             {
                 'comment': 'RIGHT-TOP: Set to HIGH, no tick',
-                'setHigh': [4,5,11,12], 'setLow': [1,8], 'readFrom': 9, 'result': '0'
+                'setHigh': [4,5,12,13], 'setLow': [1,9], 'readFrom': 10, 'result': '0'
             },
             {
                 'comment': 'LEFT-TOP: Set to HIGH, no tick',
-                'setHigh': [4,5,11,12], 'setLow': [1,8], 'readFrom': 13, 'result': '0'
+                'setHigh': [4,5,12,13], 'setLow': [1,9], 'readFrom': 15, 'result': '0'
             },
             /* Test HIGH, after tick */
             {
                 'comment': 'LEFT-BOTTOM: Set to HIGH, CLK tick',
-                'setHigh': [4,5,8,11,12], 'setLow': [1], 'readFrom': 2, 'result': '1'
+                'setHigh': [4,5,9,12,13], 'setLow': [1], 'readFrom': 2, 'result': '1'
             },
             {
                 'comment': 'RIGHT-BOTTOM: Set to HIGH, CLK tick',
-                'setHigh': [4,5,8,11,12], 'setLow': [1], 'readFrom': 15, 'result': '1'
+                'setHigh': [4,5,9,12,13], 'setLow': [1], 'readFrom': 7, 'result': '1'
             },
             {
                 'comment': 'RIGHT-TOP: Set to HIGH, CLK tick',
-                'setHigh': [4,5,8,11,12], 'setLow': [1], 'readFrom': 9, 'result': '1'
+                'setHigh': [4,5,9,12,13], 'setLow': [1], 'readFrom': 10, 'result': '1'
             },
             {
                 'comment': 'LEFT-TOP: Set to HIGH, CLK tick',
-                'setHigh': [4,5,8,11,12], 'setLow': [1], 'readFrom': 13, 'result': '1'
+                'setHigh': [4,5,9,12,13], 'setLow': [1], 'readFrom': 15, 'result': '1'
             },
             /* Test LOW, before tick */
             {
-                'comment': 'LEFT-BOTTOM: Set to HIGH, no tick',
-                'setHigh': [], 'setLow': [1,4,5,8,11,12], 'readFrom': 2, 'result': '0'
+                'comment': 'LEFT-BOTTOM: Set to LOW, no tick',
+                'setHigh': [], 'setLow': [1,4,5,9,12,13], 'readFrom': 2, 'result': '0'
             },
             {
-                'comment': 'RIGHT-BOTTOM: Set to HIGH, no tick',
-                'setHigh': [], 'setLow': [1,4,5,8,11,12], 'readFrom': 15, 'result': '0'
+                'comment': 'RIGHT-BOTTOM: Set to LOW, no tick',
+                'setHigh': [], 'setLow': [1,4,5,9,12,13], 'readFrom': 7, 'result': '0'
             },
             {
-                'comment': 'RIGHT-TOP: Set to HIGH, no tick',
-                'setHigh': [], 'setLow': [1,4,5,8,11,12], 'readFrom': 9, 'result': '0'
+                'comment': 'RIGHT-TOP: Set to LOW, no tick',
+                'setHigh': [], 'setLow': [1,4,5,9,12,13], 'readFrom': 10, 'result': '0'
             },
             {
-                'comment': 'LEFT-TOP: Set to HIGH, no tick',
-                'setHigh': [], 'setLow': [1,4,5,8,11,12], 'readFrom': 13, 'result': '0'
+                'comment': 'LEFT-TOP: Set to LOW, no tick',
+                'setHigh': [], 'setLow': [1,4,5,9,12,13], 'readFrom': 15, 'result': '0'
             },
             /* Test LOW, after tick */
             {
-                'comment': 'LEFT-BOTTOM: Set to HIGH, CLK tick',
-                'setHigh': [8], 'setLow': [1,4,5,11,12], 'readFrom': 2, 'result': '1'
+                'comment': 'LEFT-BOTTOM: Set to LOW, CLK tick',
+                'setHigh': [9], 'setLow': [1,4,5,12,13], 'readFrom': 2, 'result': '1'
             },
             {
-                'comment': 'RIGHT-BOTTOM: Set to HIGH, CLK tick',
-                'setHigh': [8], 'setLow': [1,4,5,11,12], 'readFrom': 15, 'result': '1'
+                'comment': 'RIGHT-BOTTOM: Set to LOW, CLK tick',
+                'setHigh': [9], 'setLow': [1,4,5,12,13], 'readFrom': 7, 'result': '1'
             },
             {
-                'comment': 'RIGHT-TOP: Set to HIGH, CLK tick',
-                'setHigh': [8], 'setLow': [1,4,5,11,12], 'readFrom': 9, 'result': '1'
+                'comment': 'RIGHT-TOP: Set to LOW, CLK tick',
+                'setHigh': [9], 'setLow': [1,4,5,12,13], 'readFrom': 10, 'result': '1'
             },
             {
-                'comment': 'LEFT-TOP: Set to HIGH, CLK tick',
-                'setHigh': [8], 'setLow': [1,4,5,11,12], 'readFrom': 13, 'result': '1'
+                'comment': 'LEFT-TOP: Set to LOW, CLK tick',
+                'setHigh': [9], 'setLow': [1,4,5,12,13], 'readFrom': 15, 'result': '1'
             }
         ]
     }

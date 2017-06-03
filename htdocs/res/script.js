@@ -331,34 +331,7 @@ function findGate(data) {
  * waiting for Arduino's reply.
  */
 function checkChip(id) {
-    /* char getArduinoPinFromChipPin(int chipPin)
-     * Converts Chip Pin to corresponding Arduino Pins.
-     */
-    function getArduinoPinFromChipPin(chipPin) {
-        switch(chipPin) {
-            case 1: return 2;
-            case 2: return 3;
-            case 3: return 4;
-            case 4: return 5;
-            case 5: return 6;
-            case 6: return 7;
-            case 7: return '/';
-            case 8: return 8;
-            case 9: return 9;
-            case 10: return ':';
-            case 11: return ';';
-            case 12: return '<';
-            case 13: return '=';
-            case 14: return '/';
-            case 15: return '>';
-            case 16: return '?';
-            case 17: return '@';
-            case 18: return 'A';
-            case 19: return 'B';
-            case 20: return 'C';
-        }
-        return '/';
-    }
+    var chipPinPort = chip[id]['pinPort'];
     var chipSet = chip[id]['set'];
     var command = "";
     batchId = id;
@@ -382,22 +355,22 @@ function checkChip(id) {
         /* Use truth table to check chip */
         /* Use sendWs to avoid unnecessary port config report */
         for(var j = 0; j < chipSet[batchStep]['writeTo'].length; j++) {
-            command += 'C' + (j+1) + getArduinoPinFromChipPin(chipSet[batchStep]['writeTo'][j]);
+            command += 'C' + (j+1) + chipPinPort[chipSet[batchStep]['writeTo'][j]];
         }
         for(var j = chipSet[batchStep]['writeTo'].length; j < 4; j++) {
             command += 'C' + (j+1) + '/';
         }
-        command += 'C5' + getArduinoPinFromChipPin(chipSet[batchStep]['readFrom']) + 'S' + chipSet[batchStep]['writeTo'].length;
+        command += 'C5' + chipPinPort[chipSet[batchStep]['readFrom']] + 'S' + chipSet[batchStep]['writeTo'].length;
         sendWs(command);
     } else if(chip[id]['type'] == 'direct') {
         /* Use direct digital operations to check chips, especially flip flops */
         for(var j = 0; j < chipSet[batchStep]['setHigh'].length; j++) {
-            command += 'H' + getArduinoPinFromChipPin(chipSet[batchStep]['setHigh'][j]);
+            command += 'H' + chipPinPort[chipSet[batchStep]['setHigh'][j]];
         }
         for(var j = 0; j < chipSet[batchStep]['setLow'].length; j++) {
-            command += 'L' + getArduinoPinFromChipPin(chipSet[batchStep]['setLow'][j]);
+            command += 'L' + chipPinPort[chipSet[batchStep]['setLow'][j]];
         }
-        command += 'R' + getArduinoPinFromChipPin(chipSet[batchStep]['readFrom']);
+        command += 'R' + chipPinPort[chipSet[batchStep]['readFrom']];
         sendWs(command);
     }
 }
