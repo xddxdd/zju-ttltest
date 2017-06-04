@@ -243,54 +243,54 @@ var chip = [
             /* DFF left-bottom */
             { /* DFF: Preset to HIGH */
                 'comment': 'LEFT: Preset to HIGH, test Q',
-                'setHigh': [1], 'setLow': [2,3,4], 'readFrom': 5, 'result': '1'
+                'setHigh': [1], 'setLow': [2,3,4], 'readFrom': 5, 'result': 1
             },{ /* DFF: Preset to HIGH, test invert */
                 'comment': 'LEFT: Preset to HIGH, test Q\'',
-                'setHigh': [1], 'setLow': [2,3,4], 'readFrom': 6, 'result': '0'
+                'setHigh': [1], 'setLow': [2,3,4], 'readFrom': 6, 'result': 0
             },{ /* DFF: Preset to LOW */
                 'comment': 'LEFT: Preset to LOW, test Q',
-                'setHigh': [4], 'setLow': [1,2,3], 'readFrom': 5, 'result': '0'
+                'setHigh': [4], 'setLow': [1,2,3], 'readFrom': 5, 'result': 0
             },{ /* DFF: Preset to LOW, test invert */
                 'comment': 'LEFT: Preset to LOW, test Q\'',
-                'setHigh': [4], 'setLow': [1,2,3], 'readFrom': 6, 'result': '1'
+                'setHigh': [4], 'setLow': [1,2,3], 'readFrom': 6, 'result': 1
             },{ /* DFF: Set HIGH, Prepare for CLK tick */
                 'comment': 'LEFT: Set to HIGH, no tick',
-                'setHigh': [1,2,4], 'setLow': [3], 'readFrom': 5, 'result': '0'
+                'setHigh': [1,2,4], 'setLow': [3], 'readFrom': 5, 'result': 0
             },{ /* DFF: Set HIGH, CLK tick */
                 'comment': 'LEFT: Set to HIGH, CLK tick',
-                'setHigh': [1,2,3,4], 'setLow': [], 'readFrom': 5, 'result': '1'
+                'setHigh': [1,2,3,4], 'setLow': [], 'readFrom': 5, 'result': 1
             },{ /* DFF: Set LOW, Prepare for CLK tick */
                 'comment': 'LEFT: Set to LOW, no tick',
-                'setHigh': [1,4], 'setLow': [2,3], 'readFrom': 5, 'result': '1'
+                'setHigh': [1,4], 'setLow': [2,3], 'readFrom': 5, 'result': 1
             },{ /* DFF: Set LOW, CLK tick */
                 'comment': 'LEFT: Set to LOW, CLK tick',
-                'setHigh': [1,3,4], 'setLow': [2], 'readFrom': 5, 'result': '0'
+                'setHigh': [1,3,4], 'setLow': [2], 'readFrom': 5, 'result': 0
             },
             /* DFF top-right */
             { /* DFF: Preset to HIGH */
                 'comment': 'RIGHT: Preset to HIGH, test Q',
-                'setHigh': [13], 'setLow': [12,11,10], 'readFrom': 9, 'result': '1'
+                'setHigh': [13], 'setLow': [12,11,10], 'readFrom': 9, 'result': 1
             },{ /* DFF: Preset to HIGH, test invert \*/
                 'comment': 'RIGHT: Preset to HIGH, test Q\'',
-                'setHigh': [13], 'setLow': [12,11,10], 'readFrom': 8, 'result': '0'
+                'setHigh': [13], 'setLow': [12,11,10], 'readFrom': 8, 'result': 0
             },{ /* DFF: Preset to LOW \*/
                 'comment': 'RIGHT: Preset to LOW, test Q',
-                'setHigh': [10], 'setLow': [13,12,11], 'readFrom': 9, 'result': '0'
+                'setHigh': [10], 'setLow': [13,12,11], 'readFrom': 9, 'result': 0
             },{ /* DFF: Preset to LOW, test invert \*/
                 'comment': 'RIGHT: Preset to LOW, test Q\'',
-                'setHigh': [10], 'setLow': [13,12,11], 'readFrom': 8, 'result': '1'
+                'setHigh': [10], 'setLow': [13,12,11], 'readFrom': 8, 'result': 1
             },{ /* DFF: Set HIGH, Prepare for CLK tick \*/
                 'comment': 'RIGHT: Set to HIGH, no tick',
-                'setHigh': [13,12,10], 'setLow': [11], 'readFrom': 9, 'result': '0'
+                'setHigh': [13,12,10], 'setLow': [11], 'readFrom': 9, 'result': 0
             },{ /* DFF: Set HIGH, CLK tick \*/
                 'comment': 'RIGHT: Set to HIGH, CLK tick',
-                'setHigh': [13,12,11,10], 'setLow': [], 'readFrom': 9, 'result': '1'
+                'setHigh': [13,12,11,10], 'setLow': [], 'readFrom': 9, 'result': 1
             },{ /* DFF: Set LOW, Prepare for CLK tick \*/
                 'comment': 'RIGHT: Set to LOW, no tick',
-                'setHigh': [13,10], 'setLow': [12,11], 'readFrom': 9, 'result': '1'
+                'setHigh': [13,10], 'setLow': [12,11], 'readFrom': 9, 'result': 1
             },{ /* DFF: Set LOW, CLK tick \*/
                 'comment': 'RIGHT: Set to LOW, CLK tick',
-                'setHigh': [13,11,10], 'setLow': [12], 'readFrom': 9, 'result': '0'
+                'setHigh': [13,11,10], 'setLow': [12], 'readFrom': 9, 'result': 0
             }
         ]
     },
@@ -320,103 +320,103 @@ var chip = [
             /* Test clearing and inverted output */
             {
                 'comment': 'LEFT-BOTTOM: Clear, test Q',
-                'setHigh': [1], 'setLow': [4,5,9,12,13], 'readFrom': 2, 'result': '0'
+                'setHigh': [], 'setLow': [1,4,5,9,12,13], 'readFrom': 2, 'result': 0
             },
             {
                 'comment': 'LEFT-BOTTOM: Clear, test Q\'',
-                'setHigh': [1], 'setLow': [4,5,9,12,13], 'readFrom': 3, 'result': '1'
+                'setHigh': [], 'setLow': [1,4,5,9,12,13], 'readFrom': 3, 'result': 1
             },
             {
                 'comment': 'RIGHT-BOTTOM: Clear, test Q',
-                'setHigh': [1], 'setLow': [4,5,9,12,13], 'readFrom': 7, 'result': '0'
+                'setHigh': [], 'setLow': [1,4,5,9,12,13], 'readFrom': 7, 'result': 0
             },
             {
                 'comment': 'RIGHT-BOTTOM: Clear, test Q\'',
-                'setHigh': [1], 'setLow': [4,5,9,12,13], 'readFrom': 6, 'result': '1'
+                'setHigh': [], 'setLow': [1,4,5,9,12,13], 'readFrom': 6, 'result': 1
             },
             {
                 'comment': 'RIGHT-TOP: Clear, test Q',
-                'setHigh': [1], 'setLow': [4,5,9,12,13], 'readFrom': 10, 'result': '0'
+                'setHigh': [], 'setLow': [1,4,5,9,12,13], 'readFrom': 10, 'result': 0
             },
             {
                 'comment': 'RIGHT-TOP: Clear, test Q\'',
-                'setHigh': [1], 'setLow': [4,5,9,12,13], 'readFrom': 11, 'result': '1'
+                'setHigh': [], 'setLow': [1,4,5,9,12,13], 'readFrom': 11, 'result': 1
             },
             {
                 'comment': 'LEFT-TOP: Clear, test Q',
-                'setHigh': [1], 'setLow': [4,5,9,12,13], 'readFrom': 15, 'result': '0'
+                'setHigh': [], 'setLow': [1,4,5,9,12,13], 'readFrom': 15, 'result': 0
             },
             {
                 'comment': 'LEFT-TOP: Clear, test Q\'',
-                'setHigh': [1], 'setLow': [4,5,9,12,13], 'readFrom': 14, 'result': '1'
+                'setHigh': [], 'setLow': [1,4,5,9,12,13], 'readFrom': 14, 'result': 1
             },
             /* Test HIGH, before tick */
             {
-                'comment': 'LEFT-BOTTOM: Set to HIGH, no tick',
-                'setHigh': [4,5,12,13], 'setLow': [1,9], 'readFrom': 2, 'result': '0'
+                'comment': 'LEFT-BOTTOM: HIGH, no tick',
+                'setHigh': [1,4,5,12,13], 'setLow': [9], 'readFrom': 2, 'result': 0
             },
             {
-                'comment': 'RIGHT-BOTTOM: Set to HIGH, no tick',
-                'setHigh': [4,5,12,13], 'setLow': [1,9], 'readFrom': 7, 'result': '0'
+                'comment': 'RIGHT-BOTTOM: HIGH, no tick',
+                'setHigh': [1,4,5,12,13], 'setLow': [9], 'readFrom': 7, 'result': 0
             },
             {
-                'comment': 'RIGHT-TOP: Set to HIGH, no tick',
-                'setHigh': [4,5,12,13], 'setLow': [1,9], 'readFrom': 10, 'result': '0'
+                'comment': 'RIGHT-TOP: HIGH, no tick',
+                'setHigh': [1,4,5,12,13], 'setLow': [9], 'readFrom': 10, 'result': 0
             },
             {
-                'comment': 'LEFT-TOP: Set to HIGH, no tick',
-                'setHigh': [4,5,12,13], 'setLow': [1,9], 'readFrom': 15, 'result': '0'
+                'comment': 'LEFT-TOP: HIGH, no tick',
+                'setHigh': [1,4,5,12,13], 'setLow': [9], 'readFrom': 15, 'result': 0
             },
             /* Test HIGH, after tick */
             {
-                'comment': 'LEFT-BOTTOM: Set to HIGH, CLK tick',
-                'setHigh': [4,5,9,12,13], 'setLow': [1], 'readFrom': 2, 'result': '1'
+                'comment': 'LEFT-BOTTOM: HIGH, CLK tick',
+                'setHigh': [1,4,5,9,12,13], 'setLow': [], 'readFrom': 2, 'result': 1
             },
             {
-                'comment': 'RIGHT-BOTTOM: Set to HIGH, CLK tick',
-                'setHigh': [4,5,9,12,13], 'setLow': [1], 'readFrom': 7, 'result': '1'
+                'comment': 'RIGHT-BOTTOM: HIGH, CLK tick',
+                'setHigh': [1,4,5,9,12,13], 'setLow': [], 'readFrom': 7, 'result': 1
             },
             {
-                'comment': 'RIGHT-TOP: Set to HIGH, CLK tick',
-                'setHigh': [4,5,9,12,13], 'setLow': [1], 'readFrom': 10, 'result': '1'
+                'comment': 'RIGHT-TOP: HIGH, CLK tick',
+                'setHigh': [1,4,5,9,12,13], 'setLow': [], 'readFrom': 10, 'result': 1
             },
             {
-                'comment': 'LEFT-TOP: Set to HIGH, CLK tick',
-                'setHigh': [4,5,9,12,13], 'setLow': [1], 'readFrom': 15, 'result': '1'
+                'comment': 'LEFT-TOP: HIGH, CLK tick',
+                'setHigh': [1,4,5,9,12,13], 'setLow': [], 'readFrom': 15, 'result': 1
             },
             /* Test LOW, before tick */
             {
-                'comment': 'LEFT-BOTTOM: Set to LOW, no tick',
-                'setHigh': [], 'setLow': [1,4,5,9,12,13], 'readFrom': 2, 'result': '1'
+                'comment': 'LEFT-BOTTOM: LOW, no tick',
+                'setHigh': [1], 'setLow': [4,5,9,12,13], 'readFrom': 2, 'result': 1
             },
             {
-                'comment': 'RIGHT-BOTTOM: Set to LOW, no tick',
-                'setHigh': [], 'setLow': [1,4,5,9,12,13], 'readFrom': 7, 'result': '1'
+                'comment': 'RIGHT-BOTTOM: LOW, no tick',
+                'setHigh': [1], 'setLow': [4,5,9,12,13], 'readFrom': 7, 'result': 1
             },
             {
-                'comment': 'RIGHT-TOP: Set to LOW, no tick',
-                'setHigh': [], 'setLow': [1,4,5,9,12,13], 'readFrom': 10, 'result': '1'
+                'comment': 'RIGHT-TOP: LOW, no tick',
+                'setHigh': [1], 'setLow': [4,5,9,12,13], 'readFrom': 10, 'result': 1
             },
             {
-                'comment': 'LEFT-TOP: Set to LOW, no tick',
-                'setHigh': [], 'setLow': [1,4,5,9,12,13], 'readFrom': 15, 'result': '1'
+                'comment': 'LEFT-TOP: LOW, no tick',
+                'setHigh': [1], 'setLow': [4,5,9,12,13], 'readFrom': 15, 'result': 1
             },
             /* Test LOW, after tick */
             {
-                'comment': 'LEFT-BOTTOM: Set to LOW, CLK tick',
-                'setHigh': [9], 'setLow': [1,4,5,12,13], 'readFrom': 2, 'result': '0'
+                'comment': 'LEFT-BOTTOM: LOW, CLK tick',
+                'setHigh': [1,9], 'setLow': [4,5,12,13], 'readFrom': 2, 'result': 0
             },
             {
-                'comment': 'RIGHT-BOTTOM: Set to LOW, CLK tick',
-                'setHigh': [9], 'setLow': [1,4,5,12,13], 'readFrom': 7, 'result': '0'
+                'comment': 'RIGHT-BOTTOM: LOW, CLK tick',
+                'setHigh': [1,9], 'setLow': [4,5,12,13], 'readFrom': 7, 'result': 0
             },
             {
-                'comment': 'RIGHT-TOP: Set to LOW, CLK tick',
-                'setHigh': [9], 'setLow': [1,4,5,12,13], 'readFrom': 10, 'result': '0'
+                'comment': 'RIGHT-TOP: LOW, CLK tick',
+                'setHigh': [1,9], 'setLow': [4,5,12,13], 'readFrom': 10, 'result': 0
             },
             {
-                'comment': 'LEFT-TOP: Set to LOW, CLK tick',
-                'setHigh': [9], 'setLow': [1,4,5,12,13], 'readFrom': 15, 'result': '0'
+                'comment': 'LEFT-TOP: LOW, CLK tick',
+                'setHigh': [1,9], 'setLow': [4,5,12,13], 'readFrom': 15, 'result': 0
             }
         ]
     }
