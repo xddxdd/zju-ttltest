@@ -387,36 +387,36 @@ var chip = [
             /* Test LOW, before tick */
             {
                 'comment': 'LEFT-BOTTOM: Set to LOW, no tick',
-                'setHigh': [], 'setLow': [1,4,5,9,12,13], 'readFrom': 2, 'result': '0'
+                'setHigh': [], 'setLow': [1,4,5,9,12,13], 'readFrom': 2, 'result': '1'
             },
             {
                 'comment': 'RIGHT-BOTTOM: Set to LOW, no tick',
-                'setHigh': [], 'setLow': [1,4,5,9,12,13], 'readFrom': 7, 'result': '0'
+                'setHigh': [], 'setLow': [1,4,5,9,12,13], 'readFrom': 7, 'result': '1'
             },
             {
                 'comment': 'RIGHT-TOP: Set to LOW, no tick',
-                'setHigh': [], 'setLow': [1,4,5,9,12,13], 'readFrom': 10, 'result': '0'
+                'setHigh': [], 'setLow': [1,4,5,9,12,13], 'readFrom': 10, 'result': '1'
             },
             {
                 'comment': 'LEFT-TOP: Set to LOW, no tick',
-                'setHigh': [], 'setLow': [1,4,5,9,12,13], 'readFrom': 15, 'result': '0'
+                'setHigh': [], 'setLow': [1,4,5,9,12,13], 'readFrom': 15, 'result': '1'
             },
             /* Test LOW, after tick */
             {
                 'comment': 'LEFT-BOTTOM: Set to LOW, CLK tick',
-                'setHigh': [9], 'setLow': [1,4,5,12,13], 'readFrom': 2, 'result': '1'
+                'setHigh': [9], 'setLow': [1,4,5,12,13], 'readFrom': 2, 'result': '0'
             },
             {
                 'comment': 'RIGHT-BOTTOM: Set to LOW, CLK tick',
-                'setHigh': [9], 'setLow': [1,4,5,12,13], 'readFrom': 7, 'result': '1'
+                'setHigh': [9], 'setLow': [1,4,5,12,13], 'readFrom': 7, 'result': '0'
             },
             {
                 'comment': 'RIGHT-TOP: Set to LOW, CLK tick',
-                'setHigh': [9], 'setLow': [1,4,5,12,13], 'readFrom': 10, 'result': '1'
+                'setHigh': [9], 'setLow': [1,4,5,12,13], 'readFrom': 10, 'result': '0'
             },
             {
                 'comment': 'LEFT-TOP: Set to LOW, CLK tick',
-                'setHigh': [9], 'setLow': [1,4,5,12,13], 'readFrom': 15, 'result': '1'
+                'setHigh': [9], 'setLow': [1,4,5,12,13], 'readFrom': 15, 'result': '0'
             }
         ]
     }
