@@ -23,6 +23,7 @@ class ArduinoComm(multiprocessing.Process):
             self.arduino.write(b'P')
             while(self.arduino.read() != b'P'):
                 self.arduino.write(b'P')
+            self.arduino.read()
             self.arduino.write(b'V')
             print('Successfully connected to %s' % self.arduino.readline().decode('UTF-8').strip())
         except FileNotFoundError:
