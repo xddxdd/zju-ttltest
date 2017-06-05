@@ -4,7 +4,6 @@ int outPin2 = 3;
 int outPin3 = 4;
 int outPin4 = 5;
 int inPin = 6;
-int modeSet[20];
 
 void setup() {
     digitalWrite(13, LOW);
@@ -14,7 +13,6 @@ void setup() {
 }
 
 void loop() {
-    int i;
     int sRead = serialRead();
     int newPin, chPin;
     switch(sRead) {
@@ -79,65 +77,23 @@ void loop() {
             /* Manually set high an output */
             /* Pin definition see above */
             newPin = serialRead() - '0';
-            ltPinMode(newPin, OUTPUT);
+            pinMode(newPin, OUTPUT);
             analogWrite(newPin, 255);
             break;
         case 'L':
             /* Manually set low an output */
             /* Pin definition see above */
             newPin = serialRead() - '0';
-            ltPinMode(newPin, OUTPUT);
+            pinMode(newPin, OUTPUT);
             analogWrite(newPin, 0);
-            break;
-        case 'I':
-            /* Manually set to read mode */
-            /* Pin definition see above */
-            newPin = serialRead() - '0';
-            ltPinMode(newPin, INPUT);
             break;
         case 'R':
             /* Manually read from input */
             /* Pin definition see above */
             newPin = serialRead() - '0';
-            ltPinMode(newPin, INPUT);
+            pinMode(newPin, INPUT);
             delay(50);
             Serial.print(digitalRead(newPin));
-            Serial.print('\n');
-            break;
-        case 'A':
-            /* Read output from all pins */
-            Serial.print('A');
-            Serial.print(digitalRead(2));
-            Serial.print(digitalRead(3));
-            Serial.print(digitalRead(4));
-            Serial.print(digitalRead(5));
-            Serial.print(digitalRead(6));
-            Serial.print(digitalRead(7));
-            Serial.print(digitalRead(8));
-            Serial.print(digitalRead(9));
-            Serial.print(digitalRead(10));
-            Serial.print(digitalRead(11));
-            Serial.print(digitalRead(12));
-            Serial.print(digitalRead(13));
-            Serial.print(digitalRead(A0));
-            Serial.print(digitalRead(A1));
-            Serial.print(digitalRead(A2));
-            Serial.print(digitalRead(A3));
-            Serial.print(digitalRead(A4));
-            Serial.print(digitalRead(A5));
-            Serial.print('\n');
-            break;
-        case 'M':
-            /* Print modes of all pins */
-            i = 0;
-            Serial.print('M');
-            for(i = 2; i < 20; i++) {
-                if(modeSet[i] == INPUT) {
-                    Serial.print(0);
-                } else {
-                    Serial.print(1);
-                }
-            }
             Serial.print('\n');
             break;
     }
@@ -150,22 +106,17 @@ char serialRead() {
 }
 
 void registerPins() {
-    ltPinMode(outPin1, OUTPUT);
+    pinMode(outPin1, OUTPUT);
     analogWrite(outPin1, 0);
-    ltPinMode(outPin2, OUTPUT);
+    pinMode(outPin2, OUTPUT);
     analogWrite(outPin2, 0);
-    ltPinMode(outPin3, OUTPUT);
+    pinMode(outPin3, OUTPUT);
     analogWrite(outPin3, 0);
-    ltPinMode(outPin4, OUTPUT);
+    pinMode(outPin4, OUTPUT);
     analogWrite(outPin4, 0);
-    ltPinMode(inPin, OUTPUT);
+    pinMode(inPin, OUTPUT);
     analogWrite(inPin, 0);
-    ltPinMode(inPin, INPUT);
-}
-
-void ltPinMode(int pin, int mode) {
-    modeSet[pin] = mode;
-    pinMode(pin, mode);
+    pinMode(inPin, INPUT);
 }
 
 void test(int testPorts) {
@@ -182,21 +133,14 @@ void test(int testPorts) {
         while(outSet[j] >= 2 && j < testPorts) {
             outSet[j] = 0;
             j++;
-            outSet[j] ++;
+            if(j < testPorts) outSet[j] ++;
         }
         if(outPin1 >= 0) analogWrite(outPin1, outSet[0] * 255);
         if(outPin2 >= 0) analogWrite(outPin2, outSet[1] * 255);
         if(outPin3 >= 0) analogWrite(outPin3, outSet[2] * 255);
         if(outPin4 >= 0) analogWrite(outPin4, outSet[3] * 255);
         delay(50);
-        /* For Debug Only
-        Serial.print(digitalRead(outPin1));
-        Serial.print(digitalRead(outPin2));
-        Serial.print(digitalRead(outPin3));
-        Serial.print(digitalRead(outPin4));
-        Serial.print('/'); */
         Serial.print(digitalRead(inPin));
-        /* Serial.print('\n'); */
     }
     Serial.print('\n');
 }
